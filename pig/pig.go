@@ -4,8 +4,22 @@ package pig
 import s "strings"
 
 const vowels = "aeiou"
-const vSuffix = "ay"
-const cSuffix = "way"
+const vSuffix = "way"
+const cSuffix = "ay"
+
+func convert(input string) string {
+    v := s.IndexAny(input, vowels)
+
+    if (v == 0) {   // starts with vowel
+        return input + vSuffix
+    }
+
+    if (v > 0) {    // starts with consontant
+        return input[v:] + input[:v] + cSuffix
+    }
+
+    return input
+}
 
 func Latin(input string) string {
     // convert string to lower case and split up words
@@ -14,19 +28,7 @@ func Latin(input string) string {
 
     // loop over words
     for i, w := range words {
-        v := s.IndexAny(w, vowels)
-        
-        switch {
-        case v == 0:    // starts with vowel
-            words[i] = w + cSuffix
-
-        case v > 0:     // starts with consontant
-            words[i] = w[v:] + w[:v] + vSuffix
-
-        default:        // word has no vowels
-            words[i] = w
-        }
-        
+        words[i] = convert(w)
     }
 
     // return joined words
