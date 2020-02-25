@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"pig-latin/pig"
 	"testing"
+
+	"github.com/justincasali/piglatin/pig"
 )
 
 func TestFunc(t *testing.T) {

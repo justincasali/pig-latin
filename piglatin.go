@@ -4,7 +4,8 @@ package main
 import (
 	"fmt"
 	"os"
-	"pig-latin/pig"
+
+	"github.com/justincasali/piglatin/pig"
 )
 
 func main() {
@@ -17,10 +18,12 @@ func main() {
 	case 2:
 		text = os.Args[1]
 	default:
-		panic("Too many arguments")
+		fmt.Println("too many arguments")
+		return
 	}
 
 	fmt.Println(text)
+
 	pigLatin := pig.Latin(text)
 	fmt.Println(pigLatin)
 }
