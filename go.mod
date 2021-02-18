@@ -1,3 +1,3 @@
 module github.com/justincasali/piglatin
 
-go 1.13
+go 1.16

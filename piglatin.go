@@ -22,8 +22,6 @@ func main() {
 		return
 	}
 
-	fmt.Println(text)
-
 	pigLatin := pig.Latin(text)
 	fmt.Println(pigLatin)
 }
